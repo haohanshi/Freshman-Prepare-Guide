@@ -1,0 +1,131 @@
+{% extends "guide/base.html" %}
+{% block css %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'guide/plugins/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block js %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'guide/plugins/prism/prism.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body class="body-orange">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">CMU</span><span class="text-bold">本科新生手册</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">Preface</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_gift"></span> 前 言</h1>
+                    <!-- <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Jan 25th, 2016</div> -->
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="web_first" class="doc-section">
+                                <h2 class="section-title">网页第一版2022届</h2>
+                                <div class="section-block">
+                                    <div>
+                                        <p>欢迎各位新生来到CMU的大家庭！本手册由卡内基梅隆大学中国学生会（CMUCSA）编篡，旨在指引2022届新生的开学准备，供各位参考。</p>
+                                        <p>在以往的新生手册编辑和使用过程中，我们发现了很多问题，例如排版耗时过长，无法及时更新纠错，手册过于冗长导致阅读不便等等。因此今年将手册内容制作成网页，便于新生阅读以及今后及时的修改和更新。</p>
+                                        <p>欢迎各位阅读，并且欢迎对任何方面向编辑者提出改进建议！</p>
+                                        <h2>本次主要更新内容:</h2>
+                                        <p></p>
+                                        <h2>主编：</h2>
+                                        <p>冯天扬（SCS '20）</p>
+                                        <p>施昊涵（CIT '19）</p>
+                                        <h2>特别感谢：</h2>
+                                        <p class="small">CMU-CSA</br></p>
+
+                                        <p class="small">本网站所有代码已<a class="dotted-line" href="https://github.com/haohanshi/Freshman-Prepare-Guide" target="_blank">开源</a></p>
+                                    </div>  
+                                </div><!--//section-block-->
+                                
+                            </section><!--//doc-section-->
+                            <section id="pdf_third" class="doc-section">
+                                <h2 class="section-title">PDF第三版2021届</h2>
+                                <div class="section-block">
+                                    <div>
+                                        <p>本手册由卡内基梅隆大学中国学生会（CMUCSA）编篡，旨在指引2021届新生的开学准备，供各位参考。希望各位同学仔细阅读本手册，并向本手册编辑者提出建议。</p>
+                                        <h2>第三版主要更新内容:</h2>
+                                        <p>更新目录</br>更新重要时间节点</br>更新学前准备信息</br>更新食堂信息</br>更新生活信息</p>
+                                        <h2>主编：</h2>
+                                        <p>施昊涵（CIT '19）</p>
+                                        <p>方严昊旻（MCS '20）</p>
+                                        <h2>特别感谢：</h2>
+                                        <p class="small">CMU-CSA</br>杨儒佳（SCS '19）</br> Membership VP 张婧妍（CFA '19）</br>吴欣然（CFA '20）</p>
+                                    </div>                                   
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="pdf_second" class="doc-section">
+                                <h2 class="section-title">PDF第二版2020届</h2>
+                                <div class="section-block">
+                                    <div>
+                                        <p>本手册由卡内基梅隆大学中国学生会（CMUCSA）编篡，旨在指引2020届新生的开学准备，供各位参考。希望各位同学仔细阅读本手册。欢迎向本手册编辑者提出建议。</p>
+                                        <h2>第二版主要更新内容:</h2>
+                                        <p>统一两分册（入学篇、生活篇）</br>更新重要时间节点</br>更新学前准备信息</br>更新食堂信息</br>更新大量生活信息</p>
+                                        <h2>主编：</h2>
+                                        <p>施昊涵（CIT '19）</p>
+                                        <p>杨儒佳（SCS '19）</p>
+                                        <p>印玥（MCS '19）</p>
+                                        <h2>特别感谢：</h2>
+                                        <p class="small">CMU-CSA</br>郭思齐（MCS '18）</br> Membership VP 张婧妍（CFA '19）</br>排版设计：纪儒风（CFA '18）</p>
+                                    </div>  
+                                </div>
+                            </section>
+                            <section id="pdf_first" class="doc-section">
+                                <h2 class="section-title">PDF第一版2019届</h2>
+                                <div class="section-block">
+                                    <div>
+                                        <p>欢迎大家来到CMU的大家庭！相信大家对大学生活已经等不及了。那么，我们该如何为大学生活准备呢？到了匹兹堡，我们该如何学习，学习之余又该如何丰富我们的课余生活呢？所有答案尽在这本新生手册当中。</p>
+                                        <p>本手册由卡内基梅隆大学中国学生会编篡，旨在方便各位新生的学前准备，并为各位在大学的生活提供一些推荐和建议。希望各位同学能够仔细阅读本手册，并对编辑人员及时提出建议，方便改进。</p>
+                                        <p>希望大家都能度过一个愉快的暑假，精神满满来迎接接下来的大学生活！</p>
+                                        <h2>主编：</h2>
+                                        <p>郭思齐（MCS '18）</p>
+                                        <h2>特别感谢：</h2>
+                                        <p class="small">CMU-CSA</br>VP Membership 魏梦遥（TEP '17）</br>President 金泰（TEP '17）</br>Creative Director 周旻（TSB '17）</br>陈嘉麒（DC '17）</br>顾天予（MCS '19）</br>杨儒佳（SCS '19）</br>施昊涵（CIT '19）</p>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                                <li><a class="scrollto" href="#web_first">网页第一版</a></li>
+                                <li><a class="scrollto" href="#pdf_third">PDF第三版</a></li>
+                                <li><a class="scrollto" href="#pdf_second">PDF第二版</a></li>
+                                <li><a class="scrollto" href="#pdf_first">PDF第一版</a></li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    {% include "guide/footer.html" %}
+     
+</body>
+{% endblock %}
+

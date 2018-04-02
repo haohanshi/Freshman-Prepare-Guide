@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.views.generic.base import RedirectView
 from guide import views
 urlpatterns = [
-    url(r'^$', views.main),
+    url(r'^$', RedirectView.as_view(url='guide/', permanent=False)),
     url(r'^guide/', include('guide.urls')),
 ]

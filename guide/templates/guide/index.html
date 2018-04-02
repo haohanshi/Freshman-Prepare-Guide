@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
-<head>
-    <title>CMU本科新生手册</title>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    {% load staticfiles %}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico">  
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="{% static 'guide/plugins/bootstrap/css/bootstrap.min.css' %}">   
-    <!-- Plugins CSS -->    
-    <link rel="stylesheet" href="{% static 'guide/plugins/font-awesome/css/font-awesome.css' %}">
-    <link rel="stylesheet" href="{% static 'guide/plugins/elegant_font/css/style.css' %}">
-    
-    <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="{% static 'guide/css/styles.css' %}">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head> 
-
+{% extends "guide/base.html" %}
+{% block body %}
 <body class="landing-page">   
-    
     <div class="page-wrapper">
         
         <!-- ******Header****** -->
@@ -40,8 +13,9 @@
                     </h1>
                 </div><!--//branding-->
                 <div class="tagline">
-                    <p><i class="fa fa-heart"></i> 来自<a class="link" href="http://www.cmucsa.com/"><span>CMU-CSA</span></a>学长学姐的整理和推荐<i class="fa fa-heart"></i></p>
+                    <p><i class="fa fa-heart"></i> 来自<a class="link" href="http://www.cmucsa.com/"><span>CMU-CSA</span></a>学长学姐的整理和推荐 <i class="fa fa-heart"></i></p>
                 </div><!--//tagline-->
+                <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Apr 2nd, 2018</div>
             </div><!--//container-->
         </header><!--//header-->
         
@@ -62,7 +36,7 @@
                             </div><!--//icon-holder-->
                             <h3 class="title">前言</h3>
                             <p class="intro">来自小编们的话</p>
-                            <a class="link" href="start.html"><span></span></a>
+                            <a class="link" href="{% url 'preface' %}"><span></span></a>
                         </div><!--//item-inner-->
                     </div><!--//item-->
                     <div class="item item-pink item-2 col-md-4 col-sm-6 col-xs-6">
@@ -120,22 +94,8 @@
             </div><!--//container-->
         </section><!--//cards-section-->
     </div><!--//page-wrapper-->
-    
-    <footer class="footer text-center">
-        <div class="container">
-            <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://github.com/haohanshi" target="_blank">Haohan Shi</a> for CMU Chinese Freshman</br></small>
-            <small class="copyright">My heart is in the work!</small>
-            
-        </div><!--//container-->
-    </footer><!--//footer-->
-    
-     
-    <!-- Main Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>                                                                     
-    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    {% include "guide/footer.html" %}
     
 </body>
-</html> 
+{% endblock%}
 
