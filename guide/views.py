@@ -10,3 +10,6 @@ def main(request):
 
 def preface(request):
     return render(request, 'guide/preface.html')
+
+def faq(request):
+    return render(request, 'guide/faqs.html')
