@@ -1,0 +1,286 @@
+{% extends "guide/base.html" %}
+{% block css %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'guide/plugins/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block js %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'guide/plugins/prism/prism.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body class="body-pink">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">CMU</span><span class="text-bold">本科新生手册</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">VPN Guide</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon icon_download"></i> VPN指南</h1>
+                    <!-- <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Jan 25th, 2016</div> -->
+                </div><!--//doc-header-->  
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="introduction" class="doc-section">
+                                <h2 class="section-title">简介</h2>
+                                <div class="section-block">
+                                    <p>在拥有Andrew ID以后，在国内的同学会有很多需要用到VPN的地方，例如收发学校邮件，登陆SIO（不用VPN会异常缓慢），注册登陆各类不存在的网站等等。由于国内监管日益严格，绝大多数翻墙软件和方法都已经被封禁，包括很多付费软件都存在价格高昂，质量不好等问题。因此特意在本次新生手册中添加这一板块，帮助大家更好的为大学做准备。
+                                    </p>
+                                    <h6>在此介绍两种方法</h6>
+                                    <ol class="list">
+                                        <li>使用学校提供的VPN，优点是简单方便，无需复杂操作，缺点是网速较慢，有时甚至不能上网。</li>
+                                        <li>使用亚马逊AWS搭建VPN，优点是网速快，稳定，免费（一年），手机电脑通用，缺点是搭建和安装需要一些额外步骤。</li>
+                                    </ol>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="cmu-vpn" class="doc-section">
+                                <h2 class="section-title">CMU校园VPN</h2>
+                                <div class="section-block">
+                                    <p>请直接访问官网，根据步骤下载和设置，在此不做详细介绍。</p>
+                                    <h6>注意Connection Type要选择Library Resources。</h6>
+                                    <a href="https://www.cmu.edu/computing/services/endpoint/network-access/vpn/how-to/index.html#whichtype" class="btn btn-green" target="_blank"><i class="fa fa-reply"></i> 访问CMU VPN官网</a>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            
+                            <section id="aws-vpn" class="doc-section">
+                                <h2 class="section-title">亚马逊AWS VPN</h2>
+                                <div class="section-block">
+                                    <p>
+                                        本部分主要内容取自<a href="http://celerysoft.github.io/2016-01-15.html" target="_blank">这篇文章</a>，在原有基础上进行修改和补充。
+                                    </p>
+                                    
+                                    <div id="build"  class="section-block">
+                                        <h3 class="block-title">搭建VPN（SCS，ECE以及想要学习CS的同学建议阅读）</h3>
+                                        <div class="callout-block callout-info">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-info-circle"></i>
+                                            </div><!--//icon-holder-->
+                                            <div class="content">
+                                                <h4 class="callout-title">本部分总共耗时约30-45分钟</h4>
+                                                <p>不想自己搭建VPN，想直接使用（我）已经搭建好的服务器的请<a class="scrollto" href="#install">点击此处</a>跳转至软件安装部分。</p>
+                                            </div><!--//content-->
+                                        </div><!--//callout-block-->
+                                        <div class="code-block">
+                                            <h5>注册登陆亚马逊AWS</h5>
+                                            <p>访问<a href="https://aws.amazon.com/cn/" target="_blank">https://aws.amazon.com/cn/</a>，使用已有亚马逊账号登陆或注册新的亚马逊账号（需要信用卡和手机号验证）</p>
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>进入控制台</h5>
+                                            <p>在右上角地区中选择首尔或东京</p>
+                                            <img src="{% static 'guide/images/1.png' %}" style="width: 50%; height: 50%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>进入EC2</h5>
+                                            <p>在所有服务中找到EC2，点击进入</p>
+                                            <img src="{% static 'guide/images/2.png' %}" style="width: 30%; height: 30%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>启动实例</h5>
+                                            <p>在中间找到启动实例按钮，点击进入</p>
+                                            <img src="{% static 'guide/images/3.png' %}" style="width: 50%; height: 50%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>选择服务</h5>
+                                            <p>在服务列表中找到 Ubuntu Server 16.04 LTS (HVM), SSD Volume Type，点击选择</p>
+                                            <img src="{% static 'guide/images/4.png' %}" style="width: 100%; height: 100%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>选择类型</h5>
+                                            <p>务必选择t2.micro</p>
+                                            <img src="{% static 'guide/images/5.png' %}" style="width: 80%; height: 80%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>设置标签</h5>
+                                            <p>一直下一步到步骤5，为这个服务添加标签，方便今后辨认，可以按照下图填写</p>
+                                            <img src="{% static 'guide/images/6.png' %}" style="width: 100%; height: 100%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>设置安全组</h5>
+                                            <p>这一步是设置服务器哪些端口需要开放，默认的SSH 22端口不需要修改，在这里我们打开将来VPN需要用到的端口，443，并且允许所有来源</p>
+                                            <img src="{% static 'guide/images/7.png' %}" style="width: 100%; height: 100%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>审核和启动</h5>
+                                            <p>点击审核并启动，再次点击启动，这时候需要创建密钥对，我们创建一个新的密钥对，取个名字，在这里我用的是collegevpn，并下载密钥对。这个文件非常重要，是今后访问服务器必要的文件，请务必妥善保管。下载完成后点击“启动实例”</p>
+                                            <img src="{% static 'guide/images/8.png' %}" style="width: 70%; height: 70%">
+                                            <div class="callout-block callout-success">
+                                                <div class="icon-holder">
+                                                    <i class="fa fa-thumbs-up"></i>
+                                                </div><!--//icon-holder-->
+                                                <div class="content">
+                                                    <h4 class="callout-title">Mac用户注意</h4>
+                                                    <p>如果发现系统自动给下载的文件加了.txt后缀，请在文件浏览器中将这个后缀删除</p>
+                                                </div><!--//content-->
+                                            </div>
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>连接至服务器</h5>
+                                            <p>启动实例后，回到EC2实例面板，这时候我们的实例已经显示在面板中了，一般1-2分钟后状态检查就会通过，这时候就可以连接服务器了</p>
+                                            <img src="{% static 'guide/images/9.png' %}" style="width: 100%; height: 100%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h6>Mac用户</h6>
+                                            <p>点击上方连接按钮，会弹出如下界面：</p>
+                                            <img src="{% static 'guide/images/11.png' %}" style="width: 80%; height: 80%">
+                                            <p>打开电脑Terminal，进入刚刚下载密钥对的文件夹:</p>
+                                            <p><code>cd Downloads/</code></p>
+                                            <p>按照上图提示更改密钥文件权限（需要输入一遍电脑密码）:</p>
+                                            <p><code>sudo chmod 400 collegevpn.pem</code></p>
+                                            <p>将上图最后一行命令复制:</p>
+                                            <p><code>ssh -i "collegevpn.pem" ubuntu@你的显示内容</code></p>
+                                            <p>询问是否继续连接时输入:</p>
+                                            <p><code>yes</code></p>
+                                            <p>看到如下界面时说明已经进入服务器了</p>
+                                            <img src="{% static 'guide/images/12.png' %}" style="width: 80%; height: 80%">
+                                            <h6></br></br>Windows用户</h6>
+                                            <p>点击上方连接按钮，会弹出如下界面：</p>
+                                            <img src="{% static 'guide/images/11.png' %}" style="width: 80%; height: 80%">
+                                            <p>由于Windows没有自带SSH，我们需要下载额外工具进行服务器连接</p>
+                                            <p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" class="btn btn-green" target="_blank"><i class="fa fa-reply"></i> PuTTY下载地址（直接下载.msi文件）</a></p>
+                                            <p>安装完PuTTY之后，请完成<a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/putty.html#putty-private-key" target="_blank">AWS官方教程</a>中的“使用 PuTTYgen 转换您的私有密钥”步骤</p>
+                                            <p>打开PuTTY，在Host Name栏中复制上图最后一条指令的最后部分：</p>
+                                            <img src="{% static 'guide/images/13.png' %}" style="width: 50%; height: 50%">
+                                            <p>在左边展开Connection，再展开SSH，然后选择Auth，右侧点击Browse，选择PuTTYgen生成的.ppk文件：</p>
+                                            <img src="{% static 'guide/images/14.png' %}" style="width: 50%; height: 50%">
+                                            <p>点击Open，确认连接，看到如下界面说明连接成功：</p>
+                                            <img src="{% static 'guide/images/15.png' %}" style="width: 70%; height: 70%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>安装VPN服务（在服务器内操作）</h5>
+                                            <p>首先需要更新系统软件：</p>
+                                            <p><code>sudo apt-get update</code></p>
+                                            <p>安装python包管理器（询问yes/no的时候输入y回车）：</p>
+                                            <p><code>sudo apt-get install python-pip</code></p>
+                                            <p>更新包管理器：</p>
+                                            <p><code>pip install --upgrade pip</code></p>
+                                            <p>安装shadowsocks：</p>
+                                            <p><code>pip install shadowsocks</code></p>
+                                            <p>测试是否安装成功（如果打印出很多帮助信息即为成功）：</p>
+                                            <p><code>ssserver -h</code></p>
+                                            <p>创建shadowsocks配置文件：</p>
+                                            <p><code>sudo nano /etc/shadowsocks.json</code></p> 
+                                            <p>将以下内容粘贴，自己取密码：</p>
+                                            <pre><code class="language-css">{
+"server" : "0.0.0.0",
+"server_port" : 443,
+"local_port" : 1080,
+"password" : "自己取密码",
+"timeout" : 300,
+"method" : "aes-256-cfb"
+}</code></pre>
+                                            <p>按Ctrl + x退出，询问是否保存时按y，之后按回车退出编辑器</p>
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>启动VPN服务</h5>
+                                            <p>所有配置已经完成，输入以下命令开启服务：</p>
+                                            <p><code>sudo ssserver -c /etc/shadowsocks.json -d start</code></p>
+                                            <p>出现以下内容即为成功：</p> 
+                                            <img src="{% static 'guide/images/16.png' %}" style="width: 100%; height: 100%">
+                                        </div><!--//code-block-->
+                                        <div class="code-block">
+                                            <h5>设置VPN服务开机自动启动</h5>
+                                            <p>为了防止今后开关服务器每次都需要手动打开服务，我们将VPN服务设置成开机自动启动</p>
+                                            <p>打开开机启动配置文件：</p>
+                                            <p><code>sudo nano /etc/rc.local</code></p>
+                                            <p>在exit 0之前添加一行：</p>
+                                            <p><code>sudo ssserver -c /etc/shadowsocks.json -d restart</code></p> 
+                                            <p>按Ctrl + x退出，询问是否保存时按y，之后按回车退出编辑器</p>
+                                            <h5>至此，所有VPN服务已经搭建成功！可以关闭和服务器的连接了</h5>
+                                        </div><!--//code-block-->
+
+                                    </div><!--//section-block-->
+
+                                    <div id="install" class="section-block">
+                                        <h3 class="block-title">安装客户端</h3>
+                                        <div class="code-block">
+                                            <h5>Windows:</h5>
+                                            <p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" class="btn btn-green" target="_blank"><i class="fa fa-reply"></i> Windows客户端下载地址（直接下载最新.zip文件）</a></p>
+                                            <h5>Mac:</h5>
+                                            <p><a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/" class="btn btn-green" target="_blank"><i class="fa fa-reply"></i> Mac客户端下载地址（直接下载最新.zip文件）</a></p>
+                                            <h5>Android:</h5>
+                                            <p><a href="https://github.com/shadowsocks/shadowsocks-android/releases" class="btn btn-green" target="_blank"><i class="fa fa-reply"></i> Android客户端下载地址（直接下载最新.apk文件）</a></p>
+                                            <h5>iOS:</h5>
+                                            <p>如果没有海外App Store账号的话需要在某宝购买一个（搜索“账号 水果”即可），最好美区，然后下载Potatso Lite应用</p>
+                                        </div><!--//code-block-->
+                                    </div><!--//section-block-->
+
+                                    <div id="connect" class="section-block">
+                                        <h3 class="block-title">连接VPN（以Mac为例）</h3>
+                                        <div class="callout-block callout-info">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-info-circle"></i>
+                                            </div><!--//icon-holder-->
+                                            <div class="content">
+                                                <h4 class="callout-title">想直接使用服务器的同学</h4>
+                                                <p>请微信联系我，我给你提供服务器相关信息</p>
+                                            </div><!--//content-->
+                                        </div><!--//callout-block-->
+                                        <div class="code-block">
+                                            <p>打开刚刚下载的客户端，首先将模式设置为Global Mode:</p>
+                                            <img src="{% static 'guide/images/17.png' %}" style="width: 40%; height: 40%">
+                                            <p>点击进入服务器列表:</p>
+                                            <img src="{% static 'guide/images/18.png' %}" style="width: 50%; height: 50%">
+                                            <p>在EC2面板下方找到服务器的IPv4公有IP，填入客户端服务器地址中，密码为你刚刚设置的VPN服务密码:</p>
+                                            <img src="{% static 'guide/images/19.png' %}" style="width: 100%; height: 100%">
+                                            <img src="{% static 'guide/images/20.png' %}" style="width: 30%; height: 30%">
+                                            <p>点击OK，开启shadowsocks，大功告成！</p>
+                                            <img src="{% static 'guide/images/21.png' %}" style="width: 70%; height: 70%">
+                                        </div><!--//code-block-->
+                                    </div><!--//section-block-->
+                                    <div id="reminder" class="section-block">
+                                        <h3 class="block-title">注意事项</h3>
+                                        <ul class="list">
+                                            <li>亚马逊AWS免费试用一年，一年后可以选择继续使用（每月几刀），或者在EC2面板终止整个服务</li>
+                                            <li>免费试用服务器性能并不高，不要将一台服务器分享给太多人使用</li>
+                                        </ul>
+                                    </div><!--//section-block-->
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#introduction">简介</a></li>
+                                <li><a class="scrollto" href="#cmu-vpn">CMU校园VPN</a></li>
+                                <li>
+                                    <a class="scrollto" href="#aws-vpn">亚马逊AWS VPN</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#build">搭建VPN</a></li>
+                                        <li><a class="scrollto" href="#install">安装客户端</a></li>
+                                        <li><a class="scrollto" href="#connect">连接VPN</a></li>
+                                        <li><a class="scrollto" href="#reminder">注意事项</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->         
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    {% include "guide/footer.html" %}
+     
+</body>
+{% endblock %}
