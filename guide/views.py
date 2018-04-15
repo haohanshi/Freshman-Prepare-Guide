@@ -13,3 +13,6 @@ def preface(request):
 
 def faq(request):
     return render(request, 'guide/faqs.html')
+
+def vpn(request):
+    return render(request, 'guide/vpn.html')
