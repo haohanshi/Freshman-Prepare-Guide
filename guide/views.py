@@ -16,3 +16,6 @@ def faq(request):
 
 def vpn(request):
     return render(request, 'guide/vpn.html')
+
+def checklist_1(request):
+    return render(request, 'guide/checklist_1.html')
