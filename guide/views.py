@@ -19,3 +19,6 @@ def vpn(request):
 
 def checklist_1(request):
     return render(request, 'guide/checklist_1.html')
+
+def checklist_2(request):
+    return render(request, 'guide/checklist_2.html')

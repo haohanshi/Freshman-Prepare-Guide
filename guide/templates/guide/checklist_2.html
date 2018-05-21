@@ -1,0 +1,104 @@
+{% extends "guide/base.html" %}
+{% block css %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'guide/plugins/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block js %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'guide/plugins/prism/prism.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body class="body-purple">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">CMU</span><span class="text-bold">本科新生手册</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">Chceklist(2)</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon icon_lifesaver"></i> 开学前要做的事（二）</h1>
+                </div><!--//doc-header-->  
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="august" class="doc-section">
+                                <h2 class="section-title">八月</h2>
+                                <div class="section-block">
+                                    <div id="tuition" class="section-block">
+                                        <h3 class="block-title">缴纳学费</h3>
+                                        <h6>缴纳金额</h6>
+                                        <p>参考SIO-Finances-Finances Home，交学费的时候略微多交一些（200-300），以免后续有额外要交的费用，但是不要多交太多，因为开学后多交的都会支票退还给你</p>
+                                        <h6>缴费时间</h6>
+                                        <p>等SIO-Finances-Finances Home内有显示要交的金额的时候就可以交了，一般六月就会显示金额</p>
+                                        <h6>缴费方法</h6>
+                                        <p>如果你有美国银行卡，进入SIO-Finances-Bank Account List，添加美国银行卡后直接交美金。如果只有中国银行卡或者已经用人民币兑换好了美金，去<a href="https://www.flywire.com" target="_blank">Flywire</a>交学费</p>
+                                        <h6>Flywire使用方法</h6>
+                                        选择I want to pay，输入Carnegie Mellon University，输入美金金额后就可以看到付款方式。Flywire的汇率一般偏高，虽然没有手续费。用美元交学费虽然有30刀手续费，但是大部分情况下依然是直接银行购买美金交美金划算，在下方选择I want to pay in another currency，然后银行电汇美金到指定地址即可。建议在交学费之前自己换算一下，是用人民币交(免手续费)划算，还是用美元(另交30刀手续费)划算
+                                    </div>
+                                    <div id="insurance" class="section-block">
+                                        <h3 class="block-title">办理健康保险</h3>
+                                        <p>七月份开始可以在<a href="https://www.cmu.edu/health-services/student-insurance/index.html" target="_blank">官网</a>enroll学校保险，standard plan就可以满足学校的要求了，眼科和牙科保险可以额外加钱购买。如果不买学校保险，需要另外买学校认可的保险（一般会比学校保险便宜，但是保额会低），具体信息请参考上面的链接，并且要填写waiver</p>
+                                    </div>
+                                    <div id="placementtest" class="section-block">
+                                        <h3 class="block-title">准备Placement Test</h3>
+                                        <h6>为什么要考Placement Test？</h6>
+                                        <p>如果你想跳掉一些基础课，但是又没考AP/IB，可以通过考Placement Test跳过基础课直接上比较难的课</p>
+                                        <h6>可考Placement Test的学科</h6>
+                                        <p>Calculus，Computer Science，English（前一篇已介绍），Languages (other than English)</p>
+                                        <h6>具体考试政策</h6>
+                                        <p>请查看<a href="https://www.cmu.edu/dietrich/advisory-center/scheduling-classes/placement-exams.html" target="_blank">官网</a>，注意跳掉的课并不会算学分，只能让你直接上更难的课，而AP/IB换课可以得到换掉的课的学分</p>
+                                    </div>
+                                    <div id="textbook" class="section-block">
+                                        <h3 class="block-title">准备课本</h3>
+                                        <h6>需要哪些课本？</h6>
+                                        <p>不同教授对于课本的要求不同，建议等课程syllabus出来之后再看教授规定需要哪些课本，也可以询问群内上过该教授该门课的学长学姐</p>
+                                        <h6>一定要纸质版吗？</h6>
+                                        <p>美国正版课本相当昂贵，一般电子版就足够满足要求，教授一般也不会强制要求购买纸质课本。如果你决定买书，纸质版的话亚马逊（或其他网站或学校书店）租书是最方便的，既便宜，又省去了期末卖书的烦恼。也可以买二手书，本身就不贵而且转卖成功净算下来支付其实很少。电子版的话一般学长学姐都有，或者在淘宝购买，提供课本信息即可，一般几十元人民币就能买到对应的高清电子版。</p>
+                                    </div>
+                                </div>
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li>
+                                    <a class="scrollto" href="#august">八月</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#tuition">缴纳学费</a></li>
+                                        <li><a class="scrollto" href="#insurance">办理健康保险</a></li>
+                                        <li><a class="scrollto" href="#placementtest">准备Placement Test</a></li>
+                                        <li><a class="scrollto" href="#textbook">准备课本</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->         
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    {% include "guide/footer.html" %}
+     
+</body>
+{% endblock %}
