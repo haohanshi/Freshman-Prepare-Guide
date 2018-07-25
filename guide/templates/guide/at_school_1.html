@@ -1,0 +1,113 @@
+{% extends "guide/base.html" %}
+{% block css %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'guide/plugins/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block js %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'guide/plugins/prism/prism.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body class="body-primary">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">CMU</span><span class="text-bold">本科新生手册</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">At School(1)</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon icon_star_alt"></i> 入学后的生活（一）</h1>
+                </div><!--//doc-header-->  
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="orientation" class="doc-section">
+                                <h2 class="section-title">Orientation（8.19-8.26）</h2>
+                                <div class="section-block">
+                                    <div id="immune" class="section-block">
+                                        <h3 class="block-title">补打疫苗</h3>
+                                        <h6>在哪里打疫苗？</h6>
+                                        <p>Morewood一楼University Health Service (UHS)，靠近Forbes Avenue的位置，公交车站正后方，带好Photo ID（护照）</p>
+                                        <h6>什么时候打疫苗?</h6>
+                                        <p>最好一来就打，只要在Health Service开门的时段不管有没有学生id都可以，所以提前到的同学找时间把疫苗早点打掉，以免orientation的时候排队，而且学校原则上要求打完要求的疫苗才能入住宿舍，所以尽快解决</p>
+                                        <h6>需要花钱吗？</h6>
+                                        <p>如果购买了学校要求的保险就不需要花钱</p>
+                                    </div>
+                                    <div id="dorm" class="section-block">
+                                        <h3 class="block-title">入住宿舍</h3>
+                                        <h6>哪天可以开始入住？</h6>
+                                        <p>8月18日 Move-In Day，早上10点到下午3点期间到达学校</p>
+                                        <h6>具体流程</h6>
+                                        <p>届时将会有4个check in tent，8月学校会发邮件通知check in tent所在地和对应的指示地图。每个学生将会被指定一个check in时间，在大约那个时间左右到达你宿舍所属的tent即可。在tent处会有许多工作人员和志愿者指引，一般流程为检验护照，领取ID，T-shirt和钥匙(如果宿舍需要钥匙开门，大一新生的宿舍一般不会需要)。<b>请检查ID上的信息是否正确！</b>一旦信息有误请去 Warner Hall地下一层HUB重新办ID卡</br>现在宿舍门锁都是直接通过ID刷卡解锁，所以务必记得在SIO上上传自己的照片，这样才能在check in当天拿到自己的ID</p>
+                                        <h6>我来得晚，错过了Move-In的时间怎么办?</h6>
+                                        <p>如果在3:30之后达学校，请直接去Residence on Fifth宿舍前台check in，这是24小时开放的</p>
+                                        <h6>Move in官网</h6>
+                                        <p>请查看<a href="https://www.cmu.edu/housing/resident-services/move-in-first.html" target="_blank">官网</a>，里面有很多有用的信息，例如地图，需要携带的物品清单等</p>
+                                        <h6>我的行李特别多怎么办? </h6>
+                                        <p>在领取ID的地方附近，可以租小推车，需要填一张表。用完请尽快归还，方便他人使用</p>
+                                        <h6>如果在开学之前网购了东西送到学校，到哪里收？</h6>
+                                        <p>所有送到CMU的包裹都去UC地下一楼的Package Pickup领取，在窗口告知工作人员你的SMC编号即可(SMC编号SIO里可以查到)。包裹多的话，可以在Package Pickup租推车，需要押ID(学生ID或护照)。Package Pickup平日晚上六点关门，周六晚上五点关门，周日不开门，Orientation时间可能会有变动。快递只保留十天，具体信息见之后会更新的收发包裹部分</p>
+                                    </div>
+                                    <div id="highlight" class="section-block">
+                                        <h3 class="block-title">Orientation Highlight</h3>
+                                        <h6>Play Fair</h6>
+                                        <p>在Orientation最后几天，是一个全体新生一起玩的大型活动，有DJ，有各种促进大家互相认识的游戏，你可以认识许多人，也许里面就有你以后的好朋友，男/女朋友也说不定哦!</p>
+                                        <h6>House War</h6>
+                                        <p>在Orientation末期。在Orientation期间，每个宿舍的同学都会学习本宿舍的口号，传统，并了解宿舍之间的rivalry(剧透一下，rivals有Mudge和Stever、Morewood和Donner、还有the Hill和Rez等)。在House War，每个宿舍会随机分成小组，和rival宿舍的另一个小组进行比拼，曾经有过的项目包括脖子传橘子、拉手传呼啦圈、水气球、手臂传西瓜、合作递吸水海绵等等。每个宿舍要穿上自己宿舍的颜色的衣服，所以可以提前做好准备！(Mudge紫色，Stever绿色，Rez粉色，Morewood黄色，the Hill红色，Donner蓝色)，2015年、2016年和2017年的House War冠军都是Stever ：）</p>
+                                        <h6>各学院单独组织的活动</h6>
+                                        <p>在某一天晚上各学院会组织不同的娱乐活动。去年的orientation，CIT去游戏厅，MCS去科技博物馆，SCS去谷歌公司参观，DC去历史博物馆，Tepper去PNC Bank参观。</p>
+                                        <h6>Pittsburgh Connection</h6>
+                                        <p>Pittsburgh Connection是学校组织，带领学生以学生价参加课外活动，比如划艇、骑马、岩洞探险、真人CS等等，虽然这个活动常年都有，但是在Orientation时新生可以免费参加一项活动！所以一定要早早去排队注册！人很多！起码提前半小时和朋友在门口排队！否则有趣的项目就被人抢光了！</p>
+                                        <h6>开学典礼</h6>
+                                        <p>Dresscode要求smart casual，穿的略正式即可。届时会按照学院划分座位，是一个认识同学院的小伙伴，感受各学院文化的好机会。每个学院会有各自特色的纪念品，还会提前学习本学院的口号</p>
+                                        <h6>Academic Advisory</h6>
+                                        <p>如果你在选课、换学分、考placement等等学术方面有任何的问题，在Orientation时每个学院的advisor会有专门的时间解答问题。一般这种时间是无需预约的，但是如果你在这些时间去不了的话，也可以email advisor预约咨询</p>
+                                        <h6>翘活动</h6>
+                                        <p>Orientation周会有一些（很多）不是必须参加的活动，例如一些讲座。这些时候可以适当翘掉一些活动去附近转转，或者去周围的超市购买需要用的物品(冰箱、鞋子衣服、零食等)</p>
+                                    </div>
+                                </div>
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li>
+                                    <a class="scrollto" href="#orientation">Orientation</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#immune">补打疫苗</a></li>
+                                        <li><a class="scrollto" href="#dorm">入住宿舍</a></li>
+                                        <li><a class="scrollto" href="#highlight">Highlight</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->         
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    {% include "guide/footer.html" %}
+     
+</body>
+{% endblock %}

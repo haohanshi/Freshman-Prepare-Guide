@@ -22,3 +22,6 @@ def checklist_1(request):
 
 def checklist_2(request):
     return render(request, 'guide/checklist_2.html')
+
+def at_school_1(request):
+    return render(request, 'guide/at_school_1.html')
