@@ -1,0 +1,273 @@
+{% extends "guide/base.html" %}
+{% block css %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'guide/plugins/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block js %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'guide/plugins/prism/prism.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">CMU</span><span class="text-bold">本科新生手册</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">At School(2)</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon icon_map_alt"></i> 入学后的生活（二）</h1>
+                </div><!--//doc-header-->  
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="food_drink" class="doc-section">
+                                <h2 class="section-title">吃喝</h2>
+                                <div class="section-block">
+                                    <div id="block_dinex" class="section-block">
+                                        <h3 class="block-title">Block & Dinex</h3>
+                                        <h6>Block里有什么？</h6>
+                                        <p>在不同的食堂所包含的内容不同，一般是一个主餐entrée 一个小吃side和一杯饮料</p>
+                                        <h6>Dinex是什么?</h6>
+                                        <p>简单的说就是零花钱。可以在entropy商店、学校部分vending machine使用。学校的entropy类似于一个小超市，有卖各种吃的包括部分生活用品。vending machine主要是一些snack和drinks。Dinex可以在学校餐厅升级你的主食或者小吃。比如可以把fries换成curly fries，或者有些主食（例如牛排）会在block基础上额外再收几刀的dinex。Dinex还可以在一些off campus的地方买吃的，包括Vocelli披萨的外卖（结账界面留下ID Number即可），Craig St.的Subway，还有Murray Ave的Eatn Park</p>
+                                        <h6>一天能用几个block？</h6>
+                                        <p>最多四个 有四个时间段：早餐（3:30-10:30）午餐（10:30-16:00）晚餐（16:00-20:00）夜宵（20:00-3:30）每个时间段只能用一个</p>
+                                    </div>
+                                    <div id="on_campus" class="section-block">
+                                        <h3 class="block-title">学校用餐地点</h3>
+                                        <h6>INoodle</h6>
+                                        <p>【中餐】位置: Newell-Simon Hall底楼。提供各种亚洲风味的食物 包括ramen 担担面 pho 饺子 还有炒菜和米饭 poke bowl 珍珠奶茶等。饭点等待时间较长</p>
+                                        <h6>Au Bon Pain</h6>
+                                        <p>【美式】位置：UC二楼靠近Forbes Ave处。类似一个综合性的面包房。非常适合吃早餐。里面包括各式三明治，沙拉，汤，面包甜点，咖啡，饮料，水果，零食等</p>
+                                        <h6>Rothberg's Roasters II</h6>
+                                        <p>【美式】位置：Scott Hall一楼。里面有：flatbread，咖啡，noodle bowl，tonkatsu，多种三明治， salad等。地理位置离Wean Hall的图书馆很近，对学习忙的同学很方便</p>
+                                        <h6>Carnegie Mellon Café</h6>
+                                        <p>【美式】位置：Resnik Housing底楼靠近Donner处。典型美式餐厅。早餐强推waffle和breakfast bomber 午餐晚餐有汉堡和沙拉，推荐steak and egg。开到半夜3点。每个月有不同口味的milkshake，值得一试。这里的咖啡是星巴克的咖啡豆</p>
+                                        <h6>Resnik Servery</h6>
+                                        <p>【各式菜品】位置：Resnik House底楼，CM Café旁边 。里面有：Nakama Express（寿司）、Fresh Select Soup & Salad、Spice It Up Grill（中午卖汉堡，晚上卖烤牛排烤三文鱼等） 、Taste of India、Global Flavor（晚餐，每周换一个国家的菜品）等。推荐每周一、三中午的Rice Bowl，每周二、四晚的chef special，每周五晚的take comfort，每周六日晚的stir fry crazy。</p>
+                                        <h6>Tartan’s Pavilion和Pasta Veloce</h6>
+                                        <p>【美式快餐】位置：Resnik House底楼面朝体育场。披萨量大，偏油。意面比较正宗。</p>
+                                        <h6>The Marketplace</h6>
+                                        <p>【各式菜品】位置：UC二楼。其中有：City Grill（卖汉堡）、Ramen Bowl（拉面）、eVgefestos（素食）、Pasta villaggio（意面）、Rice Bowl（盖饭）和Spinning Salads（沙拉）中午座位会很紧张</p>
+                                        <h6>El Gallo de Oro</h6>
+                                        <p>【墨西哥菜】位置：UC底楼黑椅子区域边。直译金鸡，CMU版chipotle。有burrito，quesadilla，还有rice bowl。量大超值。流水线式</p>
+                                        <h6>The Exchange</h6>
+                                        <p>【美式】位置：老Tepper楼一楼。评价较高。主打三明治和各种pasta</p>
+                                        <h6>La Prima</h6>
+                                        <p>【咖啡甜点】位置：Wean Hall五楼门口。评价较高。食物有各类甜点和咖啡，三明治等</p>
+                                        <h6>The Maggie Murph Café</h6>
+                                        <p>【咖啡】位置：Hunt图书馆一楼。除了周六歇业，其他时间24小时开放。这里的咖啡是星巴克的菜单和咖啡豆。可以买到很多食物，包括方便面、零食、寿司等。属于星巴克和entropy的合体。</p>
+                                        <h6>Schatz Dining Room</h6>
+                                        <p>【自助】位置：周一到周五本科生可以吃早餐和晚餐，但午餐只对研究生和教授开放。周末只有Brunch，对所有人开放。因为是自助所以性价比很高。每个月会有一次bistro night，block＋$5 Dinex。</p>
+                                        <h6>Tazza D’Oro</h6>
+                                        <p>【咖啡】位置：Gates三楼。食物主打panini，配菜沙拉</p>
+                                        <h6>Underground</h6>
+                                        <p>【美式】位置：Morewood地下一层。Morewood同学的福音，不用出门就可以到。典型美式餐厅，主打汉堡、三明治、甜点。想要增肥的朋友可以点ultimate brownie或者killer cookie。开到凌晨2点，final week通宵开放，凌晨有时会提供免费coffee</p>
+                                    </div>
+                                    <div id="squirrel_hill" class="section-block">
+                                        <h3 class="block-title">Squirrel Hill【公交5-10分钟】</h3>
+                                        <h6>Waffolonia</h6>
+                                        <p>【甜点】华夫饼非常好吃，推荐点带冰淇淋的</p>
+                                        <h6>Pamela’s</h6>
+                                        <p>【美式】推荐吃的brunch美式早餐，量非常大非常富足，周末排队会比较久</p>
+                                        <h6>Silk Elephant</h6>
+                                        <p>【泰国】比较不错的泰餐，和旁边一家叫Bangkok Balcony是姊妹店，菜品都差不多，也都比较正宗</p>
+                                        <h6>Sichuan Gourmet</h6>
+                                        <p>【中餐】一家所有人都会知道的川菜店，菜品非常的多，所有菜都非常好吃</p>
+                                        <h6>Ka Mei</h6>
+                                        <p>【中餐】家味非常有家里的味道，餐馆不大装修也不奢华，但菜品非常实在地道。主打清淡口味</p>
+                                        <h6>Chengdu Gourmet</h6>
+                                        <p>【中餐】老四川，也是非常不错，相当正宗的川菜</p>
+                                        <h6>Rose Tea Café</h6>
+                                        <p>【中餐】该可以的台湾菜馆，以甜咸口居多，在学校周围Craig Street有一家分店</p>
+                                        <h6>Everyday Noodles</h6>
+                                        <p>【中餐】中文叫天天见面，是吃面的地方。里面的面宽的细的都很好吃。汤也比较清淡。推荐小笼包和各式小菜</p>
+                                        <h6>Sakura</h6>
+                                        <p>【中餐】中文叫百家香，主打东北西北菜，推荐菜有大盘鸡，羊肉泡馍，纸锅豆腐，周末还有早餐，包子豆腐脑油条</p>
+                                        <h6>How Lee</h6>
+                                        <p>【中餐】中文叫川霸王，奶茶也很好喝，很正宗的川菜</p>
+                                        <h6>Café 33</h6>
+                                        <p>【中餐】中文叫台湾味，相当不错的台湾菜，里面各种炒菜都很好吃</p>
+                                        <h6>Sun Penang</h6>
+                                        <p>【中餐】中文叫槟城，主打泰国，马来西亚和中国菜，这家店还有比较正宗的广式点心</p>
+                                    </div>
+                                    <div id="oakland" class="section-block">
+                                        <h3 class="block-title">Oakland【公交5-10分钟】</h3>
+                                        <h6>Oishii Bento</h6>
+                                        <p>【便当】主要是以盒饭为主，但做的真的很棒，有韩式料理和日式料理，基本一份都可以吃得非常饱</p>
+                                        <h6>Razzy Fresh</h6>
+                                        <p>【甜点】很好吃的Froyo，离学校近的有两家，一家在Craig，一家在Murray</p>
+                                        <h6>Little Asia</h6>
+                                        <p>【中餐】中文叫小亚洲，主打川菜，日式料理比较少并且比较一般。但由于离学校很近，平常饿了可以去吃一顿</p>
+                                        <h6>Union Grill</h6>
+                                        <p>【美式】离我们很近的美式餐厅，比较火爆，强烈推荐大牛排</p>
+                                        <h6>Hunan Bar</h6>
+                                        <p>【中餐】既可以点菜又可以火锅自助，tip后$30左右，各种食材随便续</p>
+                                        <h6>Primanti Bros</h6>
+                                        <p>【美式】匹兹堡最负盛名的sandwich</p>
+                                        <h6>Top Shabu-Shabu & Lounge</h6>
+                                        <p>【中餐】火锅自助，便宜而且是一人一锅</p>
+                                    </div>
+                                    <div id="shadyside" class="section-block">
+                                        <h3 class="block-title">Shadyside【步行10-15分钟】</h3>
+                                        <h6>Nak Won Garden</h6>
+                                        <p>【韩餐】一家非常棒的韩式料理。有最好吃的石锅拌饭。强烈推荐各式锅</p>
+                                        <h6>BRGR</h6>
+                                        <p>【汉堡】经典美式汉堡</p>
+                                        <h6>Orient Kitchen</h6>
+                                        <p>【中餐】偏广东风味的中餐（老板讲粤语），相当正宗</p>
+                                        <h6>Fujiya Ramen</h6>
+                                        <p>【日料】有超好吃的yakitori，还有各种donburi和ramen都很推荐</p>
+                                        <h6>Spoon</h6>
+                                        <p>【西餐】这家算是匹兹堡比较高端又好吃的新美式餐厅，菜单会经常更新</p>
+                                        <h6>Cafe Moulin</h6>
+                                        <p>【早午餐】非常推荐的吃brunch的地方，离campus近，如果实在懒也可以点外卖</p>
+                                        <h6>Mercurio’s</h6>
+                                        <p>【意大利餐】很正宗的一家意大利餐，里面有意式冰淇淋gelato，还有传统意式考披萨</p>
+                                        <h6>Pallentia Tapas de Espana</h6>
+                                        <p>【西班牙】匹兹堡最好吃的西班牙海鲜饭，喜欢的朋友一定不能错过</p>
+                                    </div>
+                                    <div id="mount_washington" class="section-block">
+                                        <h3 class="block-title">Mount Washington【开车20-25分钟 公交车1小时】</h3>
+                                        <p>Mount Washington离campus较远。主要三家都是比较高档的餐厅，好吃是一方面，主要是夜晚风景很美值得花钱去吃。环境相对来说比较高大上，很适合约会、过节、过生日等。如果可以坐在靠窗的位置可以在山上可以俯瞰整个发光的匹兹堡，推荐一定要找机会去一次</p>
+                                        <h6>Monterey Bay Fish Grotto</h6>
+                                        <p>【海鲜】一家主要吃海鲜的餐厅，想在山上吃海鲜的话就必选这家了</p>
+                                        <h6>Altius</h6>
+                                        <p>【美式】常规美式餐厅，有ID也可以喝喝小酒，推荐他家甜点</p>
+                                        <h6>Vue 412</h6>
+                                        <p>【美式】新美式餐厅，和altius主打菜系比较像</p>
+                                    </div>
+                                    <div id="southside" class="section-block">
+                                        <h3 class="block-title">Southside【公交30分钟】</h3>
+                                        <h6>Joe’s Crab Shack</h6>
+                                        <p>【海鲜】非常多的海鲜，主要吃龙虾雪蟹，材料都非常新鲜</p>
+                                        <h6>Hofbrauhaus</h6>
+                                        <p>【德国】德国菜，必须点的是Giant Pretzel，比较不错的都是晚上有的几个菜，Pork Shank的，也有德国香肠配酸菜土豆泥，有ID可以一起来喝啤酒</p>
+                                        <h6>Cheesecake Factory</h6>
+                                        <p>【美式】在美国非常出名的连锁餐厅，可以叫外卖，也有整套的菜单，以意面之类为主</p>
+                                    </div>
+                                    <div id="waterfront" class="section-block">
+                                        <h3 class="block-title">Waterfront【公交30-40分钟】</h3>
+                                        <h6>Hokkaido</h6>
+                                        <p>【中餐】中文名叫北海道，是一家自助，基本一应俱全，什么菜都有，中午吃比晚上便宜5刀，有大蟹腿可以吃，而且全是不限量</p>
+                                        <h6>Burgatory</h6>
+                                        <p>【汉堡】正宗美式汉堡，奶昔很好喝</p>
+                                        <h6>Mitchell’s Fish Market</h6>
+                                        <p>【海鲜】爱吃鱼的小伙伴们有福啦！店如其名，专供海鲜。推荐Clam Chowder</p>
+                                        <h6>Yokoso</h6>
+                                        <p>【日餐】日式铁板烧，过生日不错的选择，会有大厨在你面前表演</p>
+                                        <h6>LongHorn Steakhouse</h6>
+                                        <p>【美式】非常标准的美式牛排馆，味道也不错，喜欢吃牛排的不要错过</p>
+                                    </div>
+                                    <div id="delivery" class="section-block">
+                                        <h3 class="block-title">不想出门？外卖！</h3>
+                                        <h6>Vocelli pizza</h6>
+                                        <p>想花掉dinex的首选，官网直接订餐，凌晨2点前都能下单，结账界面留下学生ID number即可，oven roasted chicken是刷夜必备夜宵，平均外送时间30-45分钟</p>
+                                        <h6>Ricepo饭宝，中餐外卖App</h6>
+                                        <p>目前支持府河人家，天天见面，老四川，百家香，槟城，蜀香园的外卖，非常方便，平均外送时间45-60分钟</p>
+                                        <h6>Yelp</h6>
+                                        <p>美国大众点评，可以搜索到周边的饭店和评价，支持外卖的店Yelp都会提供相应的联系方式</p>
+                                        <h6>Uber Eats & Postmates</h6>
+                                        <p>两个外卖App，基本上所有支持外卖的点在这两个App上都可以找到</p>
+                                    </div>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="play" class="doc-section">
+                                <h2 class="section-title">玩乐</h2>
+                                <div class="section-block">
+                                    <div id="id_free" class="section-block">
+                                        <h3 class="block-title">凭Student ID免费的地方</h3>
+                                        <p>Carnegie Museum of Art and Natural History, Carnegie Science Center, The Andy Warhol Museum, Phipps Conservatory等都可以凭CMU ID免费入场，其他地方如Matress Factory Museum，National Aviary等都可以凭ID打折</p>
+                                    </div>
+                                    <div id="leisure" class="section-block">
+                                        <h3 class="block-title">休闲娱乐</h3>
+                                        <h6>Kennywood游乐园</h6>
+                                        <p>万圣节有鬼屋专场，坐61C可达</p>
+                                        <h6>演唱会、音乐会</h6>
+                                        <p>请查看<a href="https://www.ticketmaster.com" target="_blank">ticketmaster</a>和<a href="https://pittsburghsymphony.org" target="_blank">匹兹堡交响乐团官网</a></p>
+                                        <h6>KTV</h6>
+                                        <p>Craig Street上有KBOX，Squirrel Hill有Hi Sound</p>
+                                        <h6>电影</h6>
+                                        <p>Waterfront有一家AMC</p>
+                                        <h6>看球</h6>
+                                        <p>匹兹堡有Penguins冰球队，Steelers橄榄球队，Pirates棒球队</p>
+                                        <h6>打枪（真枪）</h6>
+                                        <p>推荐去Keystone Shooting Center，离匹兹堡较远的那家，开车约半小时，不满21的需要满21的陪同</p>
+                                    </div>
+                                    <div id="shopping" class="section-block">
+                                        <h3 class="block-title">购物</h3>
+                                        <h6>Waterfront</h6>
+                                        <p>维密，Best Buy，Target，Macy’s，DSW等，基本上想要的在那一片都能买到</p>
+                                        <h6>Southside</h6>
+                                        <p>H&M, Forever 21, American Eagle等</p>
+                                        <h6>Squirrel Hill</h6>
+                                        <p>Giant Eagle，Rite Aid等</p>
+                                        <h6>Walnut Street</h6>
+                                        <p>Apple Store，Banana Republic，GAP，J.Crew等</p>
+                                        <h6>Ross Park Mall</h6>
+                                        <p>Pittsburgh最大最全的shopping mall，想要逛街去这里准没错，Nordstrom也在这里</p>
+                                        <h6>IKEA</h6>
+                                        <p>宜家在机场附近，离学校比较远，坐28X可到</p>
+                                        <h6>Grove City Outlets</h6>
+                                        <p>大名鼎鼎的奥特莱斯，在匹兹堡北面，开车约1小时</p>
+                                        <h6>亚洲超市</h6>
+                                        <p>Lotus（Downtown），Seoul Mart（Rez对面），Oriental Market（开车约20分钟），Panda Supermarket（Squirrel Hill）等</p>
+                                    </div>
+                                </div>
+                            </section><!--//doc-section-->     
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li>
+                                    <a class="scrollto" href="#food_drink">吃喝</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#block_dinex">Block & Dinex</a></li>
+                                        <li><a class="scrollto" href="#on_campus">学校用餐</a></li>
+                                        <li><a class="scrollto" href="#squirrel_hill">Squirrel Hill</a></li>
+                                        <li><a class="scrollto" href="#oakland">Oakland</a></li>
+                                        <li><a class="scrollto" href="#shadyside">Shadyside</a></li>
+                                        <li><a class="scrollto" href="#mount_washington">Mount Washington</a></li>
+                                        <li><a class="scrollto" href="#southside">Southside</a></li>
+                                        <li><a class="scrollto" href="#waterfront">Waterfront</a></li>
+                                        <li><a class="scrollto" href="#delivery">外卖</a></li>
+                                    </ul><!--//nav-->
+                                    <a class="scrollto" href="#play">玩乐</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#id_free">凭Student ID免费的地方</a></li>
+                                        <li><a class="scrollto" href="#leisure">休闲娱乐</a></li>
+                                        <li><a class="scrollto" href="#shopping">购物</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->         
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    {% include "guide/footer.html" %}
+     
+</body>
+{% endblock %}
