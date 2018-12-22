@@ -173,14 +173,15 @@
                                         </div><!--//code-block-->
                                         <div class="code-block">
                                             <h5>安装VPN服务（在服务器内操作）</h5>
-                                            <p>首先需要更新系统软件：</p>
+                                            <p>首先需要更新系统软件（询问yes/no的时候输入y回车）：</p>
                                             <p><code>sudo apt-get update</code></p>
+                                            <p><code>sudo apt-get upgrade</code></p>
                                             <p>安装python包管理器（询问yes/no的时候输入y回车）：</p>
-                                            <p><code>sudo apt-get install python-pip</code></p>
+                                            <p><code>sudo apt install python3-pip</code></p>
                                             <p>更新包管理器：</p>
-                                            <p><code>pip install --upgrade pip</code></p>
+                                            <p><code>pip3 install --upgrade pip</code></p>
                                             <p>安装shadowsocks：</p>
-                                            <p><code>pip install shadowsocks</code></p>
+                                            <p><code>sudo -H pip3 install -U git+https://github.com/shadowsocks/shadowsocks.git@master</code></p>
                                             <p>测试是否安装成功（如果打印出很多帮助信息即为成功）：</p>
                                             <p><code>ssserver -h</code></p>
                                             <p>创建shadowsocks配置文件：</p>
@@ -208,10 +209,29 @@
                                             <p>为了防止今后开关服务器每次都需要手动打开服务，我们将VPN服务设置成开机自动启动</p>
                                             <p>打开开机启动配置文件：</p>
                                             <p><code>sudo nano /etc/rc.local</code></p>
-                                            <p>在exit 0之前添加一行：</p>
-                                            <p><code>sudo ssserver -c /etc/shadowsocks.json -d restart</code></p> 
+                                            <p>把以下内容粘贴：</p>
+<pre><code class="language-css">#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+sudo ssserver -c /etc/shadowsocks.json -d restart
+exit 0
+</code></pre> 
                                             <p>按Ctrl + x退出，询问是否保存时按y，之后按回车退出编辑器</p>
-                                            <h5>至此，所有VPN服务已经搭建成功！可以关闭和服务器的连接了</h5>
+                                            <p>给予文件执行权限：</p>
+                                            <p><code>sudo chmod +x /etc/rc.local</code></p>
+                                            <p>重启服务器：</p>
+                                            <p><code>sudo reboot</code></p>
+                                            <h5>会自动断开和服务器的连接，至此，所有VPN服务已经搭建成功！</h5>
                                         </div><!--//code-block-->
 
                                     </div><!--//section-block-->
