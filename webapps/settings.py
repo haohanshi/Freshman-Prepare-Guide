@@ -120,4 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
