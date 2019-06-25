@@ -28,3 +28,6 @@ def at_school_1(request):
 
 def at_school_2(request):
     return render(request, 'guide/at_school_2.html')
+
+def sponsors(request):
+    return render(request, 'guide/sponsors.html')

@@ -1,0 +1,105 @@
+{% extends "guide/base.html" %}
+{% block css %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'guide/plugins/prism/prism.css' %}">
+<link rel="stylesheet" href="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block js %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'guide/plugins/prism/prism.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'guide/plugins/lightbox/dist/ekko-lightbox.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">CMU</span><span class="text-bold">本科新生手册</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">赞助商信息</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon icon_genius"></i> 赞助商信息</h1>
+                </div><!--//doc-header-->  
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="introduction" class="doc-section">
+                                <h2 class="section-title">简介</h2>
+                                <div class="section-block">
+                                  <p>为了给CMU的中国学生提供更多的优惠与便利，也为了CSA（中国学生会）更好地运作和服务于大家，CSA每年都会和一些赞助商进行合作。今年，CSA与四个公司签订了协议，给大家分别带来优惠的特价机票，医疗保险，手机套餐，和夏校Program。感兴趣的同学可以在此版面进行一下了解。如果有更多关于赞助商的问题，可以在新生群中进行提问，也可以通过下面的联系方式直接联系公司的负责人。</p>
+                                  <h4>赞助商网址与联系方式</h4>
+                                    <ol class="list">
+                                        <li>悦禾旅游：优惠机票、行程定制 &nbsp; <b>联系人微信：JT2355572600</b> &nbsp; <a href="https://joytrav.com" class="btn btn-blue" target="_blank"><i class="fa fa-reply"></i>访问悦禾旅游官网</a></li>
+                                        <li>SM保险：医疗保险 &nbsp; <b>联系人微信：ShiyuZhang14</b> &nbsp; <a href="https://www.smcovered.com" class="btn btn-blue" target="_blank"><i class="fa fa-reply"></i>访问SM保险官网</a></li>
+                                        <li>伐木类：与AT&amp;T合作的手机套餐 &nbsp; <b>联系人微信：ethan_zjh</b> &nbsp; <a href="https://famulei.us" class="btn btn-blue" target="_blank"><i class="fa fa-reply"></i> 访问伐木累官网</a></li>
+                                        <li>JNC暑校：国内大学暑校 &nbsp; <b>联系人微信：summer_jnc</b> &nbsp; <a href="http://www.jncabroad.com" class="btn btn-blue" target="_blank"><i class="fa fa-reply"></i> 访问JNC官网</a></li>
+                                    </ol>
+                                </div>
+                            </section><!--//doc-section-->
+							<section id="joytravel" class="doc-section">
+                                <h2 class="section-title">悦和旅游</h2>
+                                <div class="section-block">
+                                    <p>JOY TRAVEL悦禾旅游是一家综合性旅游公司，成立于2009年，致力于为即将赴美和在美华人，提供便捷和性价比最高的出行体验。主营业务包含：世界各国飞机票、世界各地旅行团及豪华邮轮、主题定制私人包团以及代办各类签证等。服务群体覆盖留学生及家长、华人华侨、中国赴美游客、中美商务交流团等在美华人同时为数十家大型国际企业提供国际、境内票务和行程定制服务。公司办公区覆盖：美国-纽约、洛杉矶、西雅图；中国-北京、成都、台湾；加拿大-温哥华；墨西哥-坎昆。</p>
+									<p style="text-align: center"><img src="{% static 'guide/images/joytravel_1.jpg' %}" style="width: 70%; height: 70%"></p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="sm-insurance" class="doc-section">
+                                <h2 class="section-title">SM保险</h2>
+                                <div class="section-block">
+                                    <p>信息即将更新，请稍后返回查看。</p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="famulei" class="doc-section">
+                                <h2 class="section-title">伐木类</h2>
+                                <div class="section-block">
+                                    <p>全美最大运营商之一AT&amp;T携手伐木类Famulei, 为留学生带来性价比最高的AT&amp;T手机套餐，其中8G个人套餐含税价格仅需38美金/月。线上购买可以指定开通时间并且可以免费邮寄AT&amp;T电话卡至中美地址，为学生提供落地使用的最大便利。</p>
+									<h6>Famulei-AT&amp;T套餐与AT&amp;T官网套餐价格对比：</h6>
+									<p style="text-align: center"><img src="{% static 'guide/images/famulei_1.jpg' %}" style="width: 100%; height: 100%"></p>
+									<p style="text-align: center"><img src="{% static 'guide/images/famulei_2.jpg' %}" style="width: 100%; height: 100%"></p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+							<section id="jnc" class="doc-section">
+                                <h2 class="section-title">JNC暑校</h2>
+                                <div class="section-block">
+                                    <p>信息即将更新，请稍后返回查看。</p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#introduction">简介</a></li>
+                                <li><a class="scrollto" href="#joytravel">悦和旅游</a></li>
+                                <li><a class="scrollto" href="#sm-insurance">SM保险</a></li>
+								<li><a class="scrollto" href="#famulei">伐木类</a></li>
+								<li><a class="scrollto" href="#jnc">JNC暑校</a></li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->         
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    {% include "guide/footer.html" %}
+     
+</body>
+{% endblock %}
